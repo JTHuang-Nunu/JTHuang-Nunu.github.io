@@ -1,0 +1,46 @@
+ <!-- 猜數字遊戲 -->
+ <!-- Want: 可以改成list那種 就文字每次的輸入結果會一直保存在網頁上，然後一直寫下去直到解出答案 -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Guess Number</title>
+</head>
+<body>
+  <h2>Welcome to Guess Number Game!</h2>
+  <hr/>
+  <script>
+    var target =  Math.random()*101;
+    target = target.toFixed(0);//get 0~100 random
+    var number;
+    var time=0;
+    var min=0;
+    var max=100;
+    number = window.prompt("input your answer(0~100):");
+    time++;
+    while(number!=target){
+      
+      if(number>target){
+        
+        alert("small than"+number);
+        max = number;
+      }
+      else if(number<target){
+        alert("bigger than"+number);
+        min = number;
+      }
+      else{
+        break;
+      }
+      number = window.prompt("input your answer("+min+"~"+max+"):");
+      time++;
+    } 
+    if(number==target){
+      document.write("you win"+"<br/>"+
+      "answer is "+target+"<br/>"+
+      "your times: "+time+"<br/>");
+    }
+  </script>
+</body>
+</html>
